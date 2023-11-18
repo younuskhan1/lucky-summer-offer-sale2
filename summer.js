@@ -1,10 +1,3 @@
-// const cardNames = document.getElementsByClassName("card-name");
-
-// for (let cardName of cardNames) {
-//     cardName.addEventListener('click', function (event) {
-//         console.log(event);
-//     })
-// }
 function getPreviousTotalPrice(fieldId) {
     const previousTotalPriceField = document.getElementById(fieldId);
     const previousTotalPriceString = previousTotalPriceField.innerText;
@@ -12,8 +5,15 @@ function getPreviousTotalPrice(fieldId) {
     return previousTotalPriceNumber;
 }
 
+function getInputFieldValue(inptfieldId) {
+    const inputField = document.getElementById(inptfieldId);
+    const inputFieldvalueString = inputField.value;
+    return inputFieldvalueString;
+}
+
 const cardTitleContainer = document.getElementById("title-container");
 
+let newTotalPrice;
 function addToCard(event) {
 
     const productName = event.childNodes[3].childNodes[3].innerText;
@@ -27,8 +27,29 @@ function addToCard(event) {
     const newProductPrice = parseFloat(productPrice);
 
     const previousTotalPrice = getPreviousTotalPrice("total-price-container");
-    const newTotalPrice = newProductPrice + previousTotalPrice;
+    newTotalPrice = newProductPrice + previousTotalPrice;
+
+    const buttonApply = document.getElementById("btn-apply");
+    if (newTotalPrice >= 200) {
+        buttonApply.removeAttribute("disabled");
+    } else {
+        buttonApply.setAttribute("disabled", true);
+    }
+
     const newTotalPriceDecimal = newTotalPrice.toFixed(2);
     document.getElementById("total-price-container").innerText = newTotalPriceDecimal;
-
+    document.getElementById("total-after-discount").innerText = newTotalPriceDecimal;
 }
+
+document.getElementById("btn-apply").addEventListener("click", function () {
+    const couponCode = getInputFieldValue("apply-input-field");
+    if (couponCode === "SELL200") {
+        const discountPrice = newTotalPrice * .20;
+        const discountPriceDecimal = discountPrice.toFixed(2);
+        document.getElementById("discount-container").innerText = discountPriceDecimal;
+        document.getElementById("total-after-discount").innerText = (newTotalPrice - discountPrice).toFixed(2);
+    } else {
+        alert("Please fill up the coupon code input field with SELL200 text.")
+    }
+
+})

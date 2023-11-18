@@ -29,6 +29,14 @@ function addToCard(event) {
     const previousTotalPrice = getPreviousTotalPrice("total-price-container");
     newTotalPrice = newProductPrice + previousTotalPrice;
 
+    const makePurchaseButton = document.getElementById("btn-make-purchase");
+
+    if (newTotalPrice > 0) {
+        makePurchaseButton.removeAttribute("disabled");
+    } else {
+        makePurchaseButton.setAttribute("disabled", true);
+    }
+
     const buttonApply = document.getElementById("btn-apply");
     if (newTotalPrice >= 200) {
         buttonApply.removeAttribute("disabled");
@@ -52,4 +60,8 @@ document.getElementById("btn-apply").addEventListener("click", function () {
         alert("Please fill up the coupon code input field with SELL200 text.")
     }
 
+})
+
+document.getElementById("go-home-btn").addEventListener("click", function () {
+    location.reload();
 })

@@ -14,40 +14,50 @@ function getInputFieldValue(inptfieldId) {
 const cardTitleContainer = document.getElementById("title-container");
 
 let newTotalPrice;
+let addedProducts = [];
 function addToCard(event) {
-
     const productName = event.childNodes[3].childNodes[3].innerText;
-    const count = cardTitleContainer.childElementCount;
-    const paragraph = document.createElement("P");
-    paragraph.classList.add("py-1");
-    paragraph.innerText = `${count + 1}. ${productName}`;
-    cardTitleContainer.appendChild(paragraph);
 
-    const productPrice = event.childNodes[3].childNodes[5].childNodes[0].innerText;
-    const newProductPrice = parseFloat(productPrice);
-
-    const previousTotalPrice = getPreviousTotalPrice("total-price-container");
-    newTotalPrice = newProductPrice + previousTotalPrice;
-
-    const makePurchaseButton = document.getElementById("btn-make-purchase");
-
-    if (newTotalPrice > 0) {
-        makePurchaseButton.removeAttribute("disabled");
+    if (addedProducts.includes(productName)) {
+        alert("You cannot add the same product twice.");
     } else {
-        makePurchaseButton.setAttribute("disabled", true);
+        const count = cardTitleContainer.childElementCount;
+        const paragraph = document.createElement("P");
+        paragraph.classList.add("py-1");
+        paragraph.innerText = `${count + 1}. ${productName}`;
+        cardTitleContainer.appendChild(paragraph);
+
+        addedProducts.push(productName);
+        // console.log(addedProducts);
+        const productPrice = event.childNodes[3].childNodes[5].childNodes[0].innerText;
+        const newProductPrice = parseFloat(productPrice);
+
+        const previousTotalPrice = getPreviousTotalPrice("total-price-container");
+        newTotalPrice = newProductPrice + previousTotalPrice;
+
+        const makePurchaseButton = document.getElementById("btn-make-purchase");
+
+        if (newTotalPrice > 0) {
+            makePurchaseButton.removeAttribute("disabled");
+        } else {
+            makePurchaseButton.setAttribute("disabled", true);
+        }
+
+        const buttonApply = document.getElementById("btn-apply");
+        if (newTotalPrice >= 200) {
+            buttonApply.removeAttribute("disabled");
+        } else {
+            buttonApply.setAttribute("disabled", true);
+        }
+
+        const newTotalPriceDecimal = newTotalPrice.toFixed(2);
+        document.getElementById("total-price-container").innerText = newTotalPriceDecimal;
+        document.getElementById("total-after-discount").innerText = newTotalPriceDecimal;
     }
 
-    const buttonApply = document.getElementById("btn-apply");
-    if (newTotalPrice >= 200) {
-        buttonApply.removeAttribute("disabled");
-    } else {
-        buttonApply.setAttribute("disabled", true);
-    }
-
-    const newTotalPriceDecimal = newTotalPrice.toFixed(2);
-    document.getElementById("total-price-container").innerText = newTotalPriceDecimal;
-    document.getElementById("total-after-discount").innerText = newTotalPriceDecimal;
 }
+
+// console.log(addedProducts)
 
 document.getElementById("btn-apply").addEventListener("click", function () {
     const couponCode = getInputFieldValue("apply-input-field");
@@ -64,4 +74,5 @@ document.getElementById("btn-apply").addEventListener("click", function () {
 
 document.getElementById("go-home-btn").addEventListener("click", function () {
     location.reload();
+    location.href = "index.html";
 })

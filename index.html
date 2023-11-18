@@ -29,7 +29,7 @@
             <div class="lg:w-2/3 md:w-full">
                 <h1 class="lg:text-start text-center font-bold text-3xl mb-5">Kitchenware</h1>
                 <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 lg:mx-0 mx-3">
-                    <div class="card bg-base-100 shadow-xl card-name">
+                    <div class="card bg-base-100 shadow-xl card-name" onclick=" addToCard(this)">
                         <div class="bg-gray-100 py-6 m-3 rounded-xl">
                             <figure><img class="h-[150px]" src="./images/prod1.png" alt="Shoes" /></figure>
                         </div>
@@ -45,7 +45,7 @@
                             <p class="text-center pb-8"><span id="accessory-money">39.00</span> TK</p>
                         </div>
                     </div>
-                    <div class="card bg-base-100 shadow-xl card-name">
+                    <div class="card bg-base-100 shadow-xl card-name" onclick=" addToCard(this)">
                         <div class="bg-gray-100 py-6 m-3 rounded-xl">
                             <figure><img class="h-[150px]" src="./images/prod2.png" alt="Shoes" /></figure>
                         </div>
@@ -61,7 +61,7 @@
                             <p class="text-center pb-8"><span id="wood-money">25.00</span> TK</p>
                         </div>
                     </div>
-                    <div class="card bg-base-100 shadow-xl card-name">
+                    <div class="card bg-base-100 shadow-xl card-name" onclick=" addToCard(this)">
                         <div class="bg-gray-100 py-6 m-3 rounded-xl">
                             <figure><img class="h-[150px]" src="./images/prod3.png" alt="Shoes" /></figure>
                         </div>
@@ -82,7 +82,7 @@
                 </div>
                 <h1 class="lg:text-start text-center font-bold text-3xl mb-5 mt-10">Sportswear</h1>
                 <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 lg:mx-0 mx-3">
-                    <div class="card bg-base-100 shadow-xl card-name">
+                    <div class="card bg-base-100 shadow-xl card-name" onclick=" addToCard(this)">
                         <div class="bg-gray-100 py-6 m-3 rounded-xl">
                             <figure><img class="h-[150px]" src="./images/prod4.png" alt="Shoes" /></figure>
                         </div>
@@ -98,7 +98,7 @@
                             <p class="text-center pb-8"><span id="cap-money">49.00</span> TK</p>
                         </div>
                     </div>
-                    <div class="card bg-base-100 shadow-xl card-name">
+                    <div class="card bg-base-100 shadow-xl card-name" onclick=" addToCard(this)">
                         <div class="bg-gray-100 py-6 m-3 rounded-xl">
                             <figure><img class="h-[150px]" src="./images/prod5.png" alt="Shoes" /></figure>
                         </div>
@@ -114,7 +114,7 @@
                             <p class="text-center pb-8"><span id="jersy-money">69.00</span> TK</p>
                         </div>
                     </div>
-                    <div class="card bg-base-100 shadow-xl card-name">
+                    <div class="card bg-base-100 shadow-xl card-name" onclick=" addToCard(this)">
                         <div class="bg-gray-100 py-6 m-3 rounded-xl">
                             <figure><img class="h-[150px]" src="./images/prod6.png" alt="Shoes" /></figure>
                         </div>
@@ -135,7 +135,7 @@
                 </div>
                 <h1 class="lg:text-start text-center font-bold text-3xl mb-5 mt-10">Furniture</h1>
                 <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 lg:mx-0 mx-3">
-                    <div class="card bg-base-100 shadow-xl card-name">
+                    <div class="card bg-base-100 shadow-xl card-name" onclick=" addToCard(this)">
                         <div class="bg-gray-100 py-6 m-3 rounded-xl">
                             <figure><img class="h-[150px]" src="./images/prod7.png" alt="Shoes" /></figure>
                         </div>
@@ -151,7 +151,7 @@
                             <p class="text-center pb-8"><span id="relax-money">185.00</span> TK</p>
                         </div>
                     </div>
-                    <div class="card bg-base-100 shadow-xl card-name">
+                    <div class="card bg-base-100 shadow-xl card-name" onclick=" addToCard(this)">
                         <div class="bg-gray-100 py-6 m-3 rounded-xl">
                             <figure><img class="h-[150px]" src="./images/prod8.png" alt="Shoes" /></figure>
                         </div>
@@ -168,7 +168,7 @@
                             <p class="text-center pb-8"><span id="children-money">299.00</span> TK</p>
                         </div>
                     </div>
-                    <div class="card bg-base-100 shadow-xl card-name">
+                    <div class="card bg-base-100 shadow-xl card-name" onclick=" addToCard(this)">
                         <div class="bg-gray-100 py-6 m-3 rounded-xl">
                             <figure><img class="h-[150px]" src="./images/prod9.png" alt="Shoes" /></figure>
                         </div>
@@ -199,10 +199,10 @@
                             disabled>Apply</button>
                     </p>
                 </div>
-                <div id="card-title-container" class="text-start pl-5 border-b-4 py-7 font-bold text-lg bg-white">
+                <div id="title-container" class="text-start pl-5 border-b-4 py-7 font-bold text-lg bg-white">
                 </div>
                 <div class="text-center my-5 border-b-4 py-7 font-bold text-xl bg-white">
-                    <p>Total Price: <span id="total-price-container">00</span>.00 TK</p>
+                    <p>Total Price: <span id="total-price-container">00</span> TK</p>
                     <p class="py-3">Discount: <span id="discount-container">00</span> TK</p>
                     <p>Total: <span id="total-after-discount">00</span> TK</p>
                 </div>

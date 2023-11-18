@@ -19,7 +19,7 @@ function addToCard(event) {
     const productName = event.childNodes[3].childNodes[3].innerText;
 
     // At the below if condition, justify that whether the clicked productName is
-    //  already existed in addedProducts empty array or not. 
+    //  already existed in the above addedProducts empty array or not. 
 
     if (addedProducts.includes(productName)) {
         alert("You cannot add the same product twice.");
